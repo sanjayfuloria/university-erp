@@ -1,0 +1,21 @@
+# render.yaml - Deploy backend to Render free tier
+# Database is hosted on Supabase (free, no card, no expiry)
+# Frontend is deployed separately on Vercel
+
+services:
+  - type: web
+    name: university-erp-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      # Supabase PostgreSQL connection string
+      # Get this from: Supabase Dashboard > Project > Connect > Session pooler (port 5432)
+      # Format: postgresql://postgres.xxxx:YOUR_PASSWORD@aws-0-region.pooler.supabase.com:5432/postgres
+      - key: DATABASE_URL
+        sync: false  # You must set this manually in Render dashboard
+      - key: SECRET_KEY
+        generateValue: true
+      - key: FRONTEND_URL
+        sync: false  # Set to your Vercel URL after deploying frontend

@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Fraunces', serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  --brand-50: #f0f4ff;
+  --brand-100: #dbe4ff;
+  --brand-500: #5c7cfa;
+  --brand-600: #4c6ef5;
+  --brand-700: #4263eb;
+  --brand-800: #3b5bdb;
+  --brand-900: #364fc7;
+  --brand-950: #1e3163;
+
+  --success: #2b8a3e;
+  --warning: #e67700;
+  --danger: #c92a2a;
+  --info: #1971c2;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #f8f9fa;
+  color: #1a1b1e;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+/* Status badge styles */
+.status-draft { background: #e9ecef; color: #495057; }
+.status-submitted { background: #dbe4ff; color: #364fc7; }
+.status-under_review { background: #fff3bf; color: #e67700; }
+.status-shortlisted { background: #d3f9d8; color: #2b8a3e; }
+.status-interview_scheduled { background: #c5f6fa; color: #0c8599; }
+.status-interview_completed { background: #c5f6fa; color: #0c8599; }
+.status-offered { background: #d0bfff; color: #6741d9; }
+.status-accepted { background: #b2f2bb; color: #1b5e20; }
+.status-rejected { background: #ffc9c9; color: #c92a2a; }
+.status-withdrawn { background: #e9ecef; color: #868e96; }
+
+/* Lead status */
+.status-new { background: #dbe4ff; color: #364fc7; }
+.status-contacted { background: #fff3bf; color: #e67700; }
+.status-interested { background: #d3f9d8; color: #2b8a3e; }
+.status-application_sent { background: #d0bfff; color: #6741d9; }
+.status-converted { background: #b2f2bb; color: #1b5e20; }
+.status-lost { background: #ffc9c9; color: #c92a2a; }
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl border border-surface-200 shadow-sm;
+  }
+  .btn-primary {
+    @apply bg-brand-700 hover:bg-brand-800 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm;
+  }
+  .btn-secondary {
+    @apply bg-white hover:bg-surface-100 text-brand-800 border border-surface-300 px-4 py-2 rounded-lg font-medium transition-colors text-sm;
+  }
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm;
+  }
+  .input-field {
+    @apply w-full px-3 py-2 border border-surface-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all;
+  }
+  .label {
+    @apply block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1;
+  }
+}
